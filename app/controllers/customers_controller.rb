@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.create(customer_params)
     flash[:success] = 'Registration Successful'
-    session[:uid] = @customer.id
+    session[:cid] = @customer.id
     redirect_to orders_new_path
   rescue
     flash[:danger] = 'There was an error. Please submit form again'

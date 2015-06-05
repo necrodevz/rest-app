@@ -1,0 +1,11 @@
+.container-fluid
+  %h4 Order Summary
+  %br
+
+  -@order.meals.each do |m|
+    -
+    .media
+      %h3{class: 'media-heading'}
+        =m.ordered_by
+      .media-body
+        = render 'item',

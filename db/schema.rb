@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150528182624) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.date     "delivery_date", null: false
+    t.date     "delivery_date"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
