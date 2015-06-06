@@ -4,8 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.belongs_to :category, index: true
       t.string :name, null: false
       t.text :description, null:false
-      t.decimal :price, precision: 10, scale: 2, null: false
-
+      t.decimal :price, null: false, precision: 12, scale: 2
 
       t.timestamps null: false
     end

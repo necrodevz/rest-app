@@ -17,8 +17,20 @@
         <li><%= link_to "About Us", '#', "data-toggle": "tab" %></li>
         <li><%= link_to "Contact Us", '#', "data-toggle": "tab" %></li>
         <li><%= link_to "Make Your Order", '#', "data-toggle": "tab" %></li>
-        <li><%= link_to "Register", '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <%if signed_in?%>
+            <li><%=link_to current_user.email, edit_user_registration_path%></li>
+            <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+            <li>
+              <%= link_to cart_path do%>
+                  <i class="fi-shopping-cart"></i>
+                  My Cart
+                  (<span class="cart-count"><%=current_user.cart_count%></span>)
+              <%end%>
+            </li>
+        <%else%>
+            <li><%=link_to "Register", new_user_registration_path%></li>
+            <li><%=link_to "Login", new_user_session_path%></li>
+        <%end%>
       </ul>
     </nav>
   </div>

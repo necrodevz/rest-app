@@ -14,15 +14,25 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-#Use Haml for html processing
+# Use Haml for html processing
 gem 'haml'
 
-#prototype to enable rjs
-#gem 'prototype-rails'
+# Use redis as cart storage
+gem 'redis', '~> 3.0.1'
+gem 'hiredis', '~> 0.4.5'
+
+# Make it pretty
+gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
+
+# Use devise for user management
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
