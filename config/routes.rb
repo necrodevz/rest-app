@@ -1,98 +1,12 @@
 Rails.application.routes.draw do
 
-  post 'customers/create'
-  patch 'customers/update'
-
-  get 'customers/register'
-
-  get 'customers/edit'
-
-  get 'customers/view'
-
-  get 'customers/delete'
-
-  get 'customers/show'
-
-  get 'orders/show'
-
-  get 'orders/new'
-
-  get 'orders/add'
-
-  get 'orders/edit'
-
-  get 'orders/update'
-
-  get 'orders/delete'
-
-  get 'meals/show'
-
-  get 'meals/new'
-
-  get 'meals/add'
-
-  get 'meals/edit'
-
-  get 'meals/update'
-
-  get 'meals/delete'
-
-  get 'category/show'
-
-  get 'category/new'
-
-  get 'category/add'
-
-  get 'category/edit'
-
-  get 'category/update'
-
-  get 'category/delete'
-
-  get 'items/show'
-
-  get 'items/new'
-
-  get 'items/add'
-
-  get 'items/edit'
-
-  get 'items/update'
-
-  get 'items/delete'
-
-  get 'items/show'
-
-  get 'items/new'
-
-  post 'items/create'
-
-  get 'items/edit'
-
-  post 'items/put'
-
-  delete 'items/delete'
-
-  #menu routes
-
-  get 'menus/edit/:id' => 'menus#show'
-  post 'menus/edit/:id' => 'menus#save_item'
-
-  #resources :menus
-  get 'meals/show'
-
-  get 'meals/new'
-
-  get 'meals/create'
-
-  get 'meals/edit'
-
-  get 'meals/put'
-
-  get 'meals/destroy'
-
-  resources :defaults
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :orders
+
+  resource :cart, only: [:show] do
+    put 'add/:meal_id', to: 'carts#add', as: :add_to
+    put 'remove/:meal_id', to: 'carts#remove', as: :remove_from
+  end
 
   root 'static_pages#home'
 

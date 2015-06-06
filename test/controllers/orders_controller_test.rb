@@ -18,7 +18,7 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should create order" do
     assert_difference('Order.count') do
-      post :create, order: {  }
+      post :create, order: { [name: @order.[name, order_for: @order.order_for }
     end
 
     assert_redirected_to order_path(assigns(:order))
@@ -35,7 +35,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should update order" do
-    patch :update, id: @order, order: {  }
+    patch :update, id: @order, order: { [name: @order.[name, order_for: @order.order_for }
     assert_redirected_to order_path(assigns(:order))
   end
 
